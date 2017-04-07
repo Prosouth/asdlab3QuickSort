@@ -4,7 +4,6 @@
 //  Created by Olivier Cuisenaire on 10.04.15.
 //  Copyright (c) 2015 Olivier Cuisenaire. All rights reserved.
 //
-
 #include <iostream>
 #include <utility>
 #include <climits>
@@ -21,12 +20,8 @@ using namespace std;
 // entre le premier, le dernier et l'élément central.
 // retourne un iterateur du même type que begin et end
 // pointant sur la valeur choisie.
-//
-// NE RIEN MODIFIER DANS CETTE FONCTION
-
-template < typename RandomAccessIterator >
-RandomAccessIterator selectPivot( const RandomAccessIterator begin,
-                                 const RandomAccessIterator end )
+template <typename RandomAccessIterator>
+RandomAccessIterator selectPivot( const RandomAccessIterator begin, const RandomAccessIterator end )
 {
     RandomAccessIterator p1 = begin;
     RandomAccessIterator p2 = begin + ( end-begin ) / 2;
@@ -48,10 +43,7 @@ RandomAccessIterator selectPivot( const RandomAccessIterator begin,
 // Affiche les valeur entre begin et end (non inclus)
 // en entourant de [] la valeur du pivot située entre
 // begin et end.
-//
-// NE RIEN MODIFIER DANS CETTE FONCTION
-
-template < typename RandomAccessIterator >
+template <typename RandomAccessIterator>
 void display( const RandomAccessIterator begin,
              const RandomAccessIterator pivot,
              const RandomAccessIterator end )
@@ -68,7 +60,6 @@ void display( const RandomAccessIterator begin,
 // et end (non inclus). Doit appeler selectPivot(...)
 // pour le choix du pivot, et display() après chaque
 // partition
-
 template <typename RandomAccessIterator>
 void quickSort(RandomAccessIterator begin,
         RandomAccessIterator end)
@@ -125,10 +116,6 @@ void quickSort(RandomAccessIterator begin,
 // Programme testant la mise en oeuvre de quickSort
 // appelle cette fonction avec une string, un tableau
 // C d'entiers et un std::vector<double>
-//
-//
-// NE RIEN MODIFIER DANS CETTE FONCTION
-
 int main(int argc, const char * argv[]) {
     
     // std::string
