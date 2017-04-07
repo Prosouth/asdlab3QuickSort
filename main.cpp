@@ -10,6 +10,7 @@
 #include <climits>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -67,16 +68,59 @@ void display( const RandomAccessIterator begin,
 // et end (non inclus). Doit appeler selectPivot(...)
 // pour le choix du pivot, et display() après chaque
 // partition
-//
-// A COMPLETER
 
-template < typename RandomAccessIterator >
-void quickSort( RandomAccessIterator begin,
-               RandomAccessIterator end )
+template <typename RandomAccessIterator>
+void quickSort(RandomAccessIterator begin,
+        RandomAccessIterator end) 
 {
-    
-}
+   
+   RandomAccessIterator i ;
+   RandomAccessIterator j ;
+   RandomAccessIterator hi = end - 1;
 
+   // Arrêt de la récursivité
+   if (end <= begin)
+   {
+      return;
+   }
+   
+   RandomAccessIterator pivot = selectPivot(begin, end); // on sélectionne le pivot
+   swap(*pivot, *hi); // on met le pivot à la fin
+
+   i = begin - 1;
+   j = hi;   
+   while (true) // boucle infinie
+   {
+      do
+      {
+          ++i;
+      }
+      while (*i < *hi);// éléments à gauche du pivot < à val de i
+      
+      do
+      {  
+          --j; 
+      }
+      while (j > begin and *j > *hi);// élément à droite du pivot > à val de j
+         
+      if (i >= j) // nécessaire pour ne pas effectuer le dernier swap
+      {
+        break;
+      }
+      swap(*i, *j);
+   }
+   
+   swap(*i, *hi); // on échange i et la valeur tout à droite
+   
+   if(begin != end - 1)
+   {
+      display(begin, i, end); // on fait l'affichage
+   }
+   
+   // on lance récursivement de begin 
+   quickSort(begin,i);
+   quickSort(i+1, end);
+}
 
 // main
 //
