@@ -106,7 +106,6 @@ void quickSort(RandomAccessIterator begin,
         display(begin, i, end); // on fait l'affichage
     }
 
-    // on lance récursivement de begin  
     quickSort(begin, i);
     quickSort(i + 1, end);
 }
