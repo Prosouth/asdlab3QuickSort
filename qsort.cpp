@@ -89,7 +89,7 @@ void quickSort(RandomAccessIterator begin,
         do 
         {
             --j;
-        } while (j > begin and *j > *hi); // élément à droite du pivot > à val de j
+        } while (j > begin && *j > *hi); // élément à droite du pivot > à val de j
 
         if (i >= j) // nécessaire pour ne pas effectuer le dernier swap
         {
