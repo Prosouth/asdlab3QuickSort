@@ -64,7 +64,6 @@ template <typename RandomAccessIterator>
 void quickSort(RandomAccessIterator begin,
         RandomAccessIterator end)
 {
-
     RandomAccessIterator i;
     RandomAccessIterator j;
     RandomAccessIterator hi = end - 1;
